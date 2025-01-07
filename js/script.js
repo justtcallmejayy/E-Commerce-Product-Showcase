@@ -13,8 +13,10 @@ fetch("products.json")
         productCard.innerHTML = `
           <img src="${product.image}" alt="${product.name}">
           <h2>${product.name}</h2>
-          <p>$${product.price}</p>
-          <button data-id="${product.id}" class="add-to-cart">Add to Cart</button>
+          <p>$${product.price.toFixed(2)}</p>
+          <button data-id="${
+            product.id
+          }" class="add-to-cart">Add to Cart</button>
         `;
         productList.appendChild(productCard);
       });
@@ -43,4 +45,5 @@ fetch("products.json")
             : products.filter((product) => product.category === category);
         renderProducts(filteredProducts);
       });
-  });
+  })
+  .catch((error) => console.error("Error fetching products:", error));
