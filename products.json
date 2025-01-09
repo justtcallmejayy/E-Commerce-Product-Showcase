@@ -1,11 +1,86 @@
 [
-  { "id": 1, "name": "Smartphone", "price": 699, "category": "electronics", "image": "images/smartphone.jpg" },
-  { "id": 2, "name": "T-Shirt", "price": 25, "category": "clothing", "image": "images/tshirt.jpg" },
-  { "id": 3, "name": "Coffee Maker", "price": 49, "category": "home", "image": "images/coffeemaker.jpg" },
-  { "id": 4, "name": "Laptop", "price": 999, "category": "electronics", "image": "images/laptop.jpg" },
-  { "id": 5, "name": "Jeans", "price": 40, "category": "clothing", "image": "images/jeans.jpg" },
-  { "id": 6, "name": "Blender", "price": 35, "category": "home", "image": "images/blender.jpg" },
-  { "id": 7, "name": "Headphones", "price": 129, "category": "electronics", "image": "images/headphones.jpg" },
-  { "id": 8, "name": "Sneakers", "price": 60, "category": "clothing", "image": "images/sneakers.jpg" },
-  { "id": 9, "name": "Vacuum Cleaner", "price": 150, "category": "home", "image": "images/vacuumcleaner.jpg" }
+  {
+    "id": 1,
+    "name": "Smartphone",
+    "price": 699,
+    "category": "electronics",
+    "image": "images/smartphone.jpg"
+  },
+  {
+    "id": 2,
+    "name": "T-Shirt",
+    "price": 25,
+    "category": "clothing",
+    "image": "images/tshirt.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Coffee Maker",
+    "price": 49,
+    "category": "home",
+    "image": "images/coffeemaker.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Laptop",
+    "price": 999,
+    "category": "electronics",
+    "image": "images/laptop.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Jeans",
+    "price": 40,
+    "category": "clothing",
+    "image": "images/jeans.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Blender",
+    "price": 35,
+    "category": "home",
+    "image": "images/blender.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Headphones",
+    "price": 129,
+    "category": "electronics",
+    "image": "images/headphones.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Sneakers",
+    "price": 60,
+    "category": "clothing",
+    "image": "images/sneakers.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Vacuum Cleaner",
+    "price": 150,
+    "category": "home",
+    "image": "images/vacuumcleaner.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Smartwatch",
+    "price": 199,
+    "category": "electronics",
+    "image": "images/smartwatch.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Jacket",
+    "price": 80,
+    "category": "clothing",
+    "image": "images/jacket.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Microwave Oven",
+    "price": 120,
+    "category": "home",
+    "image": "images/microwave.jpg"
+  }
 ]
