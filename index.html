@@ -24,6 +24,7 @@
           <option value="home">Home</option>
         </select>
       </div>
+      <button id="view-cart" class="btn">View Cart</button>
     </header>
     <main>
       <section id="product-list" class="product-list">
@@ -33,6 +34,16 @@
     <footer>
       <p>&copy; 2025 E-Commerce Showcase. All rights reserved.</p>
     </footer>
+    <div id="cart-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <p id="cart-total"></p>
+        <button id="clear-cart" class="btn delete-btn">Clear Cart</button>
+        <button id="close-cart" class="btn">Close</button>
+      </div>
+    </div>
+
     <script src="js/script.js"></script>
   </body>
 </html>
