@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Verdana", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #dad7cd; /* Light Background */
@@ -13,6 +13,7 @@ header {
   padding: 2rem;
   background-color: #344e41; /* Dark Header */
   color: #dad7cd; /* Light Text */
+  background: linear-gradient(135deg, #344e41, #588157);
 }
 
 header h1 {
@@ -56,13 +57,13 @@ header select:focus {
   border-radius: 10px;
   text-align: center;
   padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .product-card img {
