@@ -47,3 +47,11 @@ fetch("products.json")
       });
   })
   .catch((error) => console.error("Error fetching products:", error));
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function addToCart(productId) {
+  const product = products.find((p) => p.id === productId);
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${product.name} added to cart!`);
+}
