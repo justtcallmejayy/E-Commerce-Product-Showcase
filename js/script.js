@@ -1,65 +1,29 @@
-// Fetch products and display them
+let products = []; // Declare products globally
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// Fetch products and store them globally
 fetch("products.json")
   .then((response) => response.json())
-  .then((products) => {
-    const productList = document.getElementById("product-list");
-
-    // Render all products
-    function renderProducts(filteredProducts) {
-      productList.innerHTML = "";
-      filteredProducts.forEach((product) => {
-        const productCard = document.createElement("div");
-        productCard.classList.add("product-card");
-        productCard.innerHTML = `
-          <img src="${product.image}" alt="${product.name}">
-          <h2>${product.name}</h2>
-          <p>$${product.price.toFixed(2)}</p>
-          <button data-id="${
-            product.id
-          }" class="add-to-cart">Add to Cart</button>
-        `;
-        productList.appendChild(productCard);
-      });
-    }
-
-    // Initial rendering
+  .then((data) => {
+    products = data; // Store products globally
     renderProducts(products);
-
-    // Search functionality
-    document.getElementById("search").addEventListener("input", (e) => {
-      const searchTerm = e.target.value.toLowerCase();
-      const filteredProducts = products.filter((product) =>
-        product.name.toLowerCase().includes(searchTerm)
-      );
-      renderProducts(filteredProducts);
-    });
-
-    // Filter by category
-    document
-      .getElementById("categoryFilter")
-      .addEventListener("change", (e) => {
-        const category = e.target.value;
-        const filteredProducts =
-          category === "all"
-            ? products
-            : products.filter((product) => product.category === category);
-        renderProducts(filteredProducts);
-      });
   })
   .catch((error) => console.error("Error fetching products:", error));
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Save cart to local storage
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// Add to cart
+// Add to cart function
 function addToCart(productId) {
   const product = products.find((p) => p.id === productId);
-  const existingItem = cart.find((item) => item.id === productId);
+  if (!product) {
+    console.error("Product not found:", productId);
+    return;
+  }
 
+  const existingItem = cart.find((item) => item.id === productId);
   if (existingItem) {
     existingItem.quantity += 1;
   } else {
@@ -68,6 +32,24 @@ function addToCart(productId) {
 
   saveCart();
   alert(`${product.name} added to cart!`);
+}
+
+// Render products
+function renderProducts(filteredProducts) {
+  const productList = document.getElementById("product-list");
+  productList.innerHTML = "";
+
+  filteredProducts.forEach((product) => {
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+    productCard.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <h2>${product.name}</h2>
+      <p>$${product.price.toFixed(2)}</p>
+      <button data-id="${product.id}" class="add-to-cart">Add to Cart</button>
+    `;
+    productList.appendChild(productCard);
+  });
 }
 
 // Render cart
@@ -120,10 +102,29 @@ document.getElementById("cart-items").addEventListener("click", (e) => {
   }
 });
 
-// Add event listeners to "Add to Cart" buttons
+// Delegate event listener to product list for dynamically created "Add to Cart" buttons
 document.getElementById("product-list").addEventListener("click", (e) => {
   if (e.target.classList.contains("add-to-cart")) {
     const productId = parseInt(e.target.dataset.id);
     addToCart(productId);
   }
+});
+
+// Search functionality
+document.getElementById("search").addEventListener("input", (e) => {
+  const searchTerm = e.target.value.toLowerCase();
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm)
+  );
+  renderProducts(filteredProducts);
+});
+
+// Filter by category
+document.getElementById("categoryFilter").addEventListener("change", (e) => {
+  const category = e.target.value;
+  const filteredProducts =
+    category === "all"
+      ? products
+      : products.filter((product) => product.category === category);
+  renderProducts(filteredProducts);
 });
